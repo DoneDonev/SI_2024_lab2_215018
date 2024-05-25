@@ -4,7 +4,7 @@ Done Donev 215018
 Control Flow Graph
 
 <img width="495" alt="SILab2_b2" src="https://github.com/DoneDonev/SI_2024_lab2_215018/assets/108617879/ed8fd450-835f-4734-b843-3231101899c4">
-![CFG](SILab2_b2.png)
+
 
 
 
