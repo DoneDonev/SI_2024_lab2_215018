@@ -97,22 +97,34 @@ Every Branch		Test Case1		Test Case2		Test Case3		Test Case4		Test Case5		Test C
 
 СПОРЕД КРИТЕРИУМОТ EVERY BRANCH
 Test Case1: AllItems == null, payment = anything
+ex = assertThrows(RuntimeException.class, () -> SILab2.checkCart(null, 5));
+        assertTrue(ex.getMessage().contains("allItems list can't be null!"));
 Објаснување: Методот треба да фрли exception кога листата на предмети е null.
 
 Test Case2: AllItems == [(“Item1”, “1234”, 50, 0)], payment = 125
+assertTrue(SILab2.checkCart(createList(new Item("Item1", "1234", 50, 0)), 125));
 Објаснување: Методот треба правилно да ја пресмета сумата за еден предмет без попуст и да врати true бидејќи 50 <= 125.
 
 Test Case3: AllItems == [(“Item2”, “1286”, 200, 0.1)], payment = 190
+assertTrue(SILab2.checkCart(createList(new Item("Item2", "1286", 200, 0.1F)), 190));
 Објаснување: Методот треба правилно да ја пресмета сумата за еден предмет со попуст и да врати true, така што 200*0.1 = 20 а 20 <= 190
 
 Test Case4: AllItems == [(“Item3”, “12g3”, 200, 0)], payment = 230
+ex = assertThrows(RuntimeException.class,
+                () -> SILab2.checkCart(createList(new Item("Item3", "12g3", 200, 0)), 230));
+        assertTrue(ex.getMessage().contains("Invalid character in item barcode!"));
 Објаснување: Овде методот треба да фрли exception од типот "Invalid character in item barcode!", бидејќи имаме невалиден карактер во баркодот.
 
 Test Case5: AllItems == [(“Item4”, null, 90, 0)], payment = 100
+ex = assertThrows(RuntimeException.class,
+                () -> SILab2.checkCart(createList(new Item("Item4", null, 90, 0)), 100));
+        assertTrue(ex.getMessage().contains("No barcode!"));
 Објаснување: Овде методот треба да фрли exception од типот "No Barcode!", бидејќи немаме баркод внесено или баркодот е null.
 
 Test Case6: AllItems == [(“Item5”, “01283”, 320, 0.6)], payment = 320
+assertTrue(SILab2.checkCart(createList(new Item("Item5", "01283", 320, 0.6F)), 320));
 Објаснување: Овој тест ни слижи само за да помине низ гранките во кои ќе има и дополнителен попуст и затоа треба да врати true.
 
 Test Case7: AllItems == [(null, “1226”, 220, 0)],  payment = 190
+assertFalse(SILab2.checkCart(createList(new Item(null, "1226", 220, 0)), 190));
 Објаснување: Овој тест ни служи за да поминеме низ гранката во која ке го сетира името на продкутот на "unknown" бидејќи немаме име внесено или должината на името е 0, но ќе ни врати false бидејќи 220 не е <=190 односно плаќаме помалку одколку што ни се бара во сумата.
