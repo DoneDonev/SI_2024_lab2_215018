@@ -95,6 +95,7 @@ Every Branch		Test Case1		Test Case2		Test Case3		Test Case4		Test Case5		Test C
 
 ОБЈАСНУВАЊЕ НА НАПИШАНИТЕ UNIT TESTS
 
+СПОРЕД КРИТЕРИУМОТ EVERY BRANCH
 Test Case1: AllItems == null, payment = anything
 Објаснување: Методот треба да фрли exception кога листата на предмети е null.
 
