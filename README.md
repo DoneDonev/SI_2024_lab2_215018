@@ -38,15 +38,16 @@ Test Case5: AllItems == [(“Item4”, null, 90, 0)], payment = 100
  -Проверува дали методот правилно фрла исклучок кога баркодот е null.
  -Очекуван излез: RuntimeException "No barcode!"
 
-Test Case6: AllItems == [(“Item5”, “01283”, 320, 0.2)], payment = 320
+Test Case6: AllItems == [(“Item5”, “01283”, 320, 0.6)], payment = 320
  -Проверува дали методот правилно пресметува сумата кога предметот има цена над 300, 
   попуст и баркод што почнува со '0', при што се применува дополнителен попуст од 30.
  -Очекуван излез: true
 
-Test Case7: AllItems == [(null, “1226”, 220, 0.1)],  payment = 190
+Test Case7: AllItems == [(null, “1226”, 220, 0)],  payment = 190
  -Проверува дали методот правилно ги поставува имињата на предметите на "unknown" кога тие се null.
   и пресметка на сумата кога payment е помал од сумата за плаќање.
  -Очекуван излез: false
+ 
 
 Every Branch		Test Case1		Test Case2		Test Case3		Test Case4		Test Case5		Test Case6		Test Case7
 1 – 2			*			*			*			*			*			*			*
